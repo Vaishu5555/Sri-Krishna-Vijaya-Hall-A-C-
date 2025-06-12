@@ -1,0 +1,566 @@
+html {
+    min-height: 100vh;
+    /* Ensures the HTML element is at least the height of the viewport */
+    overflow-y: scroll;
+    /* Ensures scrollbar is always visible to avoid content jumping */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* This is crucial for sticky footer: stacks children vertically */
+      background-image: url('../images1/bg contact.jpg');
+    /* Main page background image */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Keeps background fixed during scroll */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent color overlay */
+    background-blend-mode: multiply;
+    /* Blends the background image with the color */
+    font-family: 'Segoe UI', sans-serif;
+    /* Consistent font for body */
+}
+
+
+/* This wrapper will expand to fill the available space, pushing the footer down */
+.site-content-wrapper {
+    flex: 1;
+    /* This property makes this div grow and consume available vertical space */
+    display: flex;
+    /* Use flexbox to center content horizontally */
+    flex-direction: column;
+    align-items: center;
+    /* Center content horizontally */
+    padding-bottom: 50px;
+    /* Add some padding at the bottom before the footer */
+}
+
+
+/* ================= NAVBAR STYLES (from your previous CSS) ================ */
+
+.navbar {
+    background: linear-gradient(145deg, #4b0082, #800080);
+    /* Purple gradient */
+    border: none;
+    min-height: 70px;
+    margin-bottom: 0;
+    border-radius: 0;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Add a subtle shadow for depth */
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    position: relative;
+    z-index: 1000;
+    /* Ensure navbar is always on top */
+    width: 100%;
+    /* Ensure navbar spans full width */
+}
+
+
+/* Nav brand (logo + text) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 15px 0 10px;
+    color: #FFD700 !important;
+    font-weight: bold;
+    font-size: 26px;
+    /* Made bigger for prominence */
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+
+/* Adjusting the logo specifically */
+.navbar-brand img#logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 15px;
+    /* More space between logo and text */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* Nav links for increased visibility and attractive hover */
+.navbar-nav>li>a {
+    color: #FFD700 !important;
+    /* Gold text */
+    height: 70px;
+    line-height: 70px;
+    padding: 0 28px;
+    /* Increased horizontal padding for more breathing room */
+    font-size: 1.45rem;
+    /* Significantly increased font size for prominence */
+    font-weight: 700;
+    /* Even bolder font for better visibility */
+    text-transform: uppercase;
+    /* Make navigation links uppercase for a strong look */
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition for hover effects */
+    position: relative;
+    /* Needed for potential pseudo-elements or advanced effects */
+}
+
+
+/* Enhanced Professional Hover state for nav links */
+.navbar-nav>li>a:hover {
+    color: #FFFFFF !important;
+    /* White text on hover for high contrast */
+    background-color: rgba(255, 215, 0, 0.35);
+    /* A more noticeable, slightly darker gold background highlight */
+    border-bottom: 4px solid #FFD700;
+    /* Stronger gold line at the bottom on hover */
+    transform: translateY(-2px);
+    /* Subtle lift effect on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    /* Add a noticeable shadow on hover */
+}
+
+
+/* Refined Active state */
+.navbar-nav>.active>a {
+    background-color: rgba(255, 215, 0, 0.5) !important;
+    /* A distinct, darker gold tint for the active link */
+    color: #FFFFFF !important;
+    /* White text for active link */
+    border-bottom: 4px solid #FFD700;
+    /* Strong gold line for active link */
+    font-weight: 800;
+    /* Extra bold for active link */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for active state */
+}
+
+
+/* Ensure active hover also looks good */
+.navbar-nav>.active>a:hover {
+    background-color: rgba(255, 215, 0, 0.6) !important;
+    /* Even darker gold tint on active hover */
+    color: #FFFFFF !important;
+    /* White text on active hover */
+    transform: translateY(-1px);
+    /* Keep a slight lift */
+}
+
+
+/* Mobile font adjustment */
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 22px;
+    }
+    .navbar-brand img#logo {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .navbar-nav>li>a {
+        text-align: center;
+        height: auto;
+        line-height: normal;
+        padding: 15px 15px;
+        /* More padding for mobile links */
+        font-size: 1.3rem;
+        /* Ensure good readability on mobile */
+    }
+    .navbar-nav .open .dropdown-menu>li>a {
+        color: #FFD700 !important;
+        background-color: #6a0dad;
+    }
+    .navbar-nav .open .dropdown-menu>li>a:hover {
+        color: #FFFFFF !important;
+        background-color: #FFD700 !important;
+    }
+    .navbar-collapse {
+        border-top: 1px solid #FFD700;
+    }
+}
+
+
+/* ================= CONTACT PAGE SPECIFIC STYLES ================ */
+
+.background-section {
+    position: relative;
+    width: 100%;
+    /* Take full width of parent (site-content-wrapper) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    /* Add padding to the top and bottom */
+}
+
+
+/* Overlay with background image + opacity */
+.background-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images1/videos background.jpg');
+    /* Background specific to contact section */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: -1;
+    /* Place the background image behind the content */
+}
+
+
+/* Main container for contact info */
+.custom-container.contact-info-container {
+    position: relative;
+    z-index: 1;
+    /* Ensure content is above any background layers */
+    width: 90%;
+    max-width: 800px;
+    /* Adjust max-width for contact content */
+    text-align: center;
+    padding: 40px 30px;
+    /* More padding for a premium feel */
+    background-color: rgba(255, 255, 255, 0.98);
+    /* Near opaque white for readability */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.custom-container.contact-info-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.contact-page-title {
+    font-weight: 900;
+    color: #4b0082;
+    /* Deep purple */
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.contact-description {
+    font-size: 1.5rem;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.contact-details {
+    text-align: center;
+    /* CENTERING ALL CONTENT WITHIN THIS BLOCK */
+    margin: 0 auto;
+    max-width: 650px;
+    /* Increased max-width to allow larger text to fit */
+    line-height: 2.2;
+    /* Increased line height for better readability of large text */
+    font-size: 1.8rem;
+    /* **SIGNIFICANTLY INCREASED FONT SIZE HERE** */
+    color: #333;
+}
+
+.contact-item {
+    margin-bottom: 25px;
+    /* Increased space between each contact item */
+    display: block;
+    /* Changed to block to allow text-align: center to work on its content */
+    /* Removed flex and align-items here because display: block overrides them */
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-item .icon {
+    font-size: 2.2em;
+    /* **LARGER ICON SIZE to match increased text** */
+    margin-right: 0;
+    /* No margin-right when icons are centered above text */
+    display: block;
+    /* Make icon a block to center it */
+    margin: 0 auto 10px auto;
+    /* Center icon and add margin below it */
+    color: #800080;
+    /* Purple icon color */
+    line-height: 1;
+    /* Align icon better */
+}
+
+.contact-details strong {
+    color: #4b0082;
+    /* Bold text in deep purple */
+}
+
+.contact-details a {
+    color: #4b0082;
+    /* **DARK COLOR FOR LINKS BEFORE HOVERING** */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #ADD8E6;
+    /* Light blue on hover for contrast */
+    text-decoration: underline;
+}
+
+.custom-line {
+    width: 40%;
+    height: 3px;
+    background-color: #FFD700;
+    /* Gold color */
+    border: none;
+    margin: 50px auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.map-placeholder {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    border: 1px dashed #ccc;
+    color: #555;
+}
+
+.map-placeholder h3 {
+    font-size: 1.8rem;
+    color: #4b0082;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* ================= GENERAL ANIMATION STYLES ================ */
+
+/* Animation */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Base animation */
+.slide-in-up {
+    opacity: 0;
+    /* Keep invisible initially */
+    transform: translateY(40px);
+    /* Move downward initially */
+    transition: opacity 1s ease, transform 1s ease;
+    /* Smooth transition */
+}
+
+
+/* Delays */
+.delay-0 {
+    animation-delay: 0.3s;
+}
+
+.delay-1 {
+    animation-delay: 0.6s;
+}
+
+.delay-2 {
+    animation-delay: 0.9s;
+}
+
+.delay-3 {
+    animation-delay: 1.2s;
+}
+
+.delay-4 {
+    animation-delay: 1.5s;
+}
+
+.delay-5 {
+    animation-delay: 1.8s;
+}
+
+.delay-6 {
+    animation-delay: 2.1s;
+}
+
+.delay-7 {
+    animation-delay: 2.4s;
+}
+
+
+/* ================= FOOTER STYLES (from your previous CSS) ================ */
+
+footer {
+    background: linear-gradient(145deg, #4b0082, #800080);
+    /* Consistent purple gradient */
+    color: #FFD700;
+    /* Gold text color, consistent with navbar */
+    padding: 30px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+    /* This pushes the footer to the bottom when flex:1 is used on content */
+    position: relative;
+    z-index: 10;
+    font-family: 'Segoe UI', sans-serif;
+    /* Consistent font with navbar */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for depth, inverse of navbar */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically for better mobile view by default */
+    align-items: center;
+    /* Center items horizontally */
+    max-width: 1200px;
+    /* Limit width for better readability on large screens */
+    margin: 0 auto;
+    /* Center the content div */
+    padding: 0 20px;
+    /* Add some horizontal padding */
+}
+
+.footer-section {
+    margin-bottom: 25px;
+    /* Space between the contact info and copyright */
+}
+
+.footer-section h3 {
+    color: #FFD700;
+    /* Gold color for heading */
+    font-size: 1.8em;
+    /* Slightly larger heading */
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    /* Increased letter spacing for headings */
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    /* Space between paragraphs */
+    font-size: 1.15em;
+    /* Readable font size for information */
+    line-height: 1.7;
+    color: #F0E68C;
+    /* Lighter gold/khaki for text, good contrast on purple */
+}
+
+.footer-section p strong {
+    color: #FFD700;
+    /* Keep strong text gold for emphasis */
+}
+
+.footer-section a {
+    color: #ADD8E6;
+    /* Light blue for links for good distinction */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #FFFFFF;
+    /* White on hover */
+    text-decoration: underline;
+    /* Underline on hover for links */
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    /* Subtle separator line above copyright */
+    padding-top: 20px;
+    /* Space above copyright */
+    margin-top: 20px;
+    /* Space from contact info */
+    width: 100%;
+    /* Ensure separator spans full width */
+}
+
+footer p.bottom {
+    color: #FFD700;
+    margin-bottom: 0;
+    font-size: 1em;
+    /* Standard font size for copyright */
+    opacity: 0.9;
+    /* Slightly faded for less prominence but still visible */
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .footer-section {
+        margin-bottom: 20px;
+    }
+    .footer-section h3 {
+        font-size: 1.6em;
+    }
+    .footer-section p {
+        font-size: 1em;
+    }
+}
+
+
+/* --- Scroll to Top Button Styles --- */
+.scroll-to-top {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Fixed position */
+    bottom: 30px;
+    /* 30px from the bottom */
+    right: 30px;
+    /* 30px from the right */
+    z-index: 999;
+    /* Make sure it's above other elements */
+    background-color: #4b0082;
+    /* Deep purple background */
+    color: #FFD700;
+    /* Gold arrow color */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Round button */
+    text-align: center;
+    line-height: 50px;
+    /* Center text/icon vertically */
+    font-size: 24px;
+    /* Icon size */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
+    /* Smooth transitions */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top:hover {
+    background-color: #6a0dad;
+    /* Darker purple on hover */
+    transform: translateY(-3px);
+    /* Slight lift effect */
+}

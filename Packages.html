@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sri Krishna Vijaya Hall(A/C)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/packages.css"> <!-- Make sure this path is correct for your CSS file -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada&display=swap" rel="stylesheet">
+  <script>
+    // It's good practice to wrap your jQuery code in a document.ready function
+    $(document).ready(function() {
+      // Initialize carousel (if you add one to this page)
+      // $('#myCarousel').carousel({
+      //   interval: 500 // Example for faster carousel if you add it
+      // });
+
+      // Navbar animation on load
+      let navbar = document.querySelector(".navbar");
+      if (navbar) {
+        navbar.style.opacity = "1";
+        navbar.style.transform = "translateY(0)";
+      }
+
+      // Function to handle scroll animations
+      const handleScrollAnimation = () => {
+        let elements = document.querySelectorAll(".slide-in-up");
+        elements.forEach(el => {
+          let rect = el.getBoundingClientRect();
+          // Trigger animation when the element is within 100px from the bottom of the viewport
+          if (rect.top < window.innerHeight - 100) {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }
+        });
+      };
+
+      // Call the animation handler immediately on page load
+      // This ensures elements already in view animate instantly
+      handleScrollAnimation(); // <-- This line was added/moved here
+
+      // Add scroll event listener for elements that come into view later
+      document.addEventListener("scroll", handleScrollAnimation);
+    });
+    $(document).ready(function() {
+        // ... (your existing JavaScript code) ...
+
+        // --- Scroll to Top Button functionality ---
+        let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // When the user scrolls down 200px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollToTopBtn.style.display = "flex"; // Changed to flex for centering SVG
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        scrollToTopBtn.addEventListener("click", topFunction);
+
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            }); // Smooth scroll
+        }
+        // --- End Scroll to Top Button functionality ---
+    });
+
+  </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle grouped -->
+    <div class="navbar-header">
+      <!-- Logo and Name -->
+      <a class="navbar-brand" href="#">
+        <!-- Replace below with your logo when ready -->
+      <img src="images1/logo1.jpg" alt="Logo" id="logo">Sri Krishna Vijaya Hall (A/C)
+      </a>
+
+      <!-- Hamburger Menu (Right side for mobile) -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="hov1"><a href="index.html">Home</a></li>
+        <li class="hov1 active"><a href="#">Packages</a></li> <!-- Mark 'Packages' as active -->
+        <li class="hov1"><a href="Events.html">Events</a></li>
+        <li class="hov1"><a href="Contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main content wrapper to push footer down -->
+<div id="main-content" class="site-content-wrapper">
+  <div class="background-section">
+    <div class="custom-container">
+      <!-- English Section -->
+      <h2 class="para-head-E slide-in-up">
+        MARRIAGE PACKAGES 1<br>
+      </h2>
+
+      <p class="para-E slide-in-up delay-1">
+        <strong>Package amount: 2,75,000 Rs. </strong>
+      </p>
+
+      <p class="para-F slide-in-up delay-2">
+        MEALS-------300 <br>
+        TIFFIN-----150 <br>
+        HALL CHARGES <br>
+        STAGE DECORATION <br>
+        PHOTO& VIDEO <br>
+        NADASWARA ( Included in this package )
+      </p>
+    </div>
+
+
+    <div class="custom-container">
+      <!-- English Section -->
+      <h2 class="para-head-E slide-in-up">
+        MARRIAGE PACKAGES 2<br>
+      </h2>
+      <p class="para-E1 slide-in-up delay-1">
+        <strong>TWO DAYS PACKAGE-(ONE NIGHT) </strong>
+      </p>
+      <p class="para-E slide-in-up delay-1">
+        <strong>Package amount: 6,00,000Rs. </strong>
+      </p>
+
+      <p class="para-F slide-in-up delay-2">
+        MEALS-------300 <br>
+        TIFFIN------800 <br>
+        HALL CHARGES <br>
+        STAGE DECORATION <br>
+        PHOTO& VIDEO <br>
+        NADASWARA ( Included in this package )
+      </p>
+    </div>
+
+    <div style="text-align: center;" >
+      <h2></h2>
+      <hr class="custom-line">
+      <p></p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer section -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section contact-info">
+      <h3>Contact Us</h3>
+      <p>
+        <strong>Address:</strong> Sri Krishna Vijaya Hall, #113, S.R. Complex, Ittamadu Main Road, Ring Road Cross, BSK 3rd Stage, Bengaluru – 560085
+      </p>
+      <p>
+        <strong>Phone:</strong> <a href="tel:08029915599">080-29915599</a>
+      </p>
+      <p>
+        <strong>Mobile:</strong> <a href="tel:9886600338">9886600338</a>
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="SRIKRISHNAVIJAYAHALL@gmail.com">SRIKRISHNAVIJAYAHALL@gmail.com</a>
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p class="bottom">© 2025 Sri Krishna Vijaya Hall. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="scrollToTopBtn" class="scroll-to-top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
+
+</body>
+</html>

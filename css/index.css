@@ -1,0 +1,616 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../images1/bg index .jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+}
+
+.site-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= NAVBAR STYLES ================ */
+
+.navbar {
+  background: linear-gradient(145deg, #4b0082, #800080); /* Purple gradient */
+  border: none;
+  min-height: 70px;
+  margin-bottom: 0;
+  border-radius: 0;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  position: relative;
+  z-index: 1000; /* Ensure navbar is always on top */
+}
+
+/* Nav brand (logo + text) */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0 15px 0 10px;
+  color: #FFD700 !important;
+  font-weight: bold;
+  font-size: 26px; /* Made bigger for prominence */
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+/* Adjusting the logo specifically */
+.navbar-brand img#logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 15px; /* More space between logo and text */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- MODIFIED: Nav links for increased visibility and attractive hover --- */
+.navbar-nav > li > a {
+  color: #FFD700 !important; /* Gold text */
+  height: 70px;
+  line-height: 70px;
+  padding: 0 28px; /* Increased horizontal padding for more breathing room */
+  font-size: 1.45rem; /* Significantly increased font size for prominence */
+  font-weight: 700; /* Even bolder font for better visibility */
+  text-transform: uppercase; /* Make navigation links uppercase for a strong look */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  position: relative; /* Needed for potential pseudo-elements or advanced effects */
+}
+
+/* --- MODIFIED: Enhanced Professional Hover state for nav links --- */
+.navbar-nav > li > a:hover {
+  color: #FFFFFF !important; /* White text on hover for high contrast */
+  background-color: rgba(255, 215, 0, 0.35); /* A more noticeable, slightly darker gold background highlight */
+  border-bottom: 4px solid #FFD700; /* Stronger gold line at the bottom on hover */
+  transform: translateY(-2px); /* Subtle lift effect on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Add a noticeable shadow on hover */
+}
+
+/* --- MODIFIED: Refined Active state --- */
+.navbar-nav > .active > a {
+  background-color: rgba(255, 215, 0, 0.5) !important; /* A distinct, darker gold tint for the active link */
+  color: #FFFFFF !important; /* White text for active link */
+  border-bottom: 4px solid #FFD700; /* Strong gold line for active link */
+  font-weight: 800; /* Extra bold for active link */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for active state */
+}
+/* Ensure active hover also looks good */
+.navbar-nav > .active > a:hover {
+    background-color: rgba(255, 215, 0, 0.6) !important; /* Even darker gold tint on active hover */
+    color: #FFFFFF !important; /* White text on active hover */
+    transform: translateY(-1px); /* Keep a slight lift */
+}
+
+/* Mobile font adjustment */
+@media (max-width: 767px) {
+  .navbar-brand {
+    font-size: 22px;
+  }
+  .navbar-brand img#logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+  .navbar-nav > li > a {
+    text-align: center;
+    height: auto;
+    line-height: normal;
+    padding: 15px 15px; /* More padding for mobile links */
+    font-size: 1.3rem; /* Ensure good readability on mobile */
+  }
+  .navbar-nav .open .dropdown-menu > li > a {
+    color: #FFD700 !important;
+    background-color: #6a0dad;
+  }
+  .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #FFFFFF !important;
+    background-color: #FFD700 !important;
+  }
+  .navbar-collapse {
+    border-top: 1px solid #FFD700;
+  }
+}
+
+/* ================= CAROUSEL STYLES ================ */
+
+.carousel-inner > .item > img {
+  width: 50% !important;
+  height: 400px !important;
+  object-fit: cover !important;
+  margin: 0 auto !important;
+  display: block !important;
+  background-color: #000;
+  border: 5px solid rgba(255, 215, 0, 0.7);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-inner {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+
+/* --- Hide Carousel Indicators (Dots) --- */
+.carousel-indicators {
+  display: none !important;
+}
+
+
+/* Hide caption in small screens */
+@media(max-width: 768px) {
+  .carousel-caption {
+    display: none;
+  }
+  body {
+    font-size: 14px;
+  }
+  .carousel-inner > .item > img {
+    height: 250px !important;
+    width: 80% !important;
+  }
+}
+
+/* ================= FOOTER STYLES ================ */
+
+footer {
+  background: linear-gradient(145deg, #4b0082, #800080);
+  color: #FFD700;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+}
+
+footer p.bottom {
+  color: #FFD700;
+  margin-bottom: 0;
+  font-size: 1.1em;
+}
+
+/* ================= IMAGE UTILITY (OPTIONAL) ================ */
+
+/* writing section */
+/* English writing section */
+/* Background section */
+.background-section {
+  position: relative;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+/* Content box shared by both English & Kannada */
+.custom-container {
+  position: relative;
+  z-index: 1;
+  width: 70%;
+  max-width: 700px;
+  text-align: center;
+  padding: 30px 20px;
+  background-color: rgba(245, 245, 245, 0.95);
+  border-radius: 12px;
+  margin-bottom: 40px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* english heading */
+#paraheadE{
+  font-weight: 900;
+  color: brown;
+  text-align: center;
+  font-size: 3.5rem; /* Reverted to user's original */
+  margin-bottom: 20px;
+  line-height: 1.3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* english para */
+#paraE{
+  font-size: 1.9rem; /* Reverted to user's original */
+  text-align: center;
+  color: #0f1010;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* line break */
+.custom-line {
+  width: 40%;
+  height: 3px;
+  background-color: blue; /* Reverted to user's original */
+  border: none;
+  margin: 20px auto; /* Reverted to user's original */
+  margin-bottom: 20px ;
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+}
+.custom-container:hover{
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25); /* Reverted to user's original */
+}
+
+/* Hover effect for the content within the custom-container */
+.custom-container:hover #paraheadE {
+  font-size: 3.8rem; /* Reverted to user's original */
+  text-shadow: 2px 2px 7px rgba(128, 0, 128, 0.9); /* Reverted to user's original */
+}
+
+.custom-container:hover #paraE {
+  font-size: 2.1rem; /* Reverted to user's original */
+  text-shadow: 1px 1px 4px rgba(128, 0, 128, 0.6); /* Reverted to user's original */
+}
+
+
+/* kannada Writing section */
+/* kannada heading */
+#paraheadk {
+  color: #c0392b;
+  font-weight: 900;
+  text-align: center;
+  font-size: 3rem; /* Reverted to user's original */
+  margin-bottom: 25px;
+  font-family: 'Baloo Tamma 2', sans-serif;
+  transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* kannada para */
+#parak {
+  font-size: 1.7rem; /* Reverted to user's original */
+  text-align: center;
+  color: #171818;
+  line-height: 1.8;
+  font-family: 'Baloo Tamma 2', sans-serif;
+  transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for Kannada content */
+.custom-container:hover #paraheadk {
+  font-size: 3.3rem; /* Reverted to user's original */
+  text-shadow: 2px 2px 7px rgba(192, 57, 43, 0.9); /* Reverted to user's original */
+}
+
+.custom-container:hover #parak {
+  font-size: 1.9rem; /* Reverted to user's original */
+  text-shadow: 1px 1px 4px rgba(192, 57, 43, 0.6); /* Reverted to user's original */
+}
+
+
+/* NEW Announcement Section Styles */
+.announcement-container {
+  /* Inherits most styles from .custom-container */
+  border: 3px solid #FFD700; /* Gold border for distinction */
+  background-color: rgba(255, 255, 255, 0.98); /* Slightly more opaque background */
+  padding: 50px 30px;
+  margin-top: 50px; /* More space above */
+  margin-bottom: 50px; /* More space below */
+}
+
+.announcement-title {
+  font-weight: 900;
+  color: #E60073; /* A vibrant pink/red for announcement */
+  font-size: 3.8rem; /* Adjusted for larger impact */
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+.announcement-title-kannada {
+  font-weight: 900;
+  color: #E60073; /* A vibrant pink/red for announcement */
+  font-size: 3.5rem; /* Adjusted for larger impact */
+  font-family: 'Baloo Tamma 2', sans-serif; /* Ensure Kannada font for its title */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.announcement-text {
+  font-size: 1.4rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+.announcement-text-kannada {
+    font-size: 1.3rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-family: 'Baloo Tamma 2', sans-serif; /* Ensure Kannada font for its text */
+}
+
+
+.announcement-subtitle {
+  font-weight: 700;
+  color: #800080; /* Purple for subtitles */
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.announcement-subtitle-kannada {
+    font-weight: 700;
+    color: #800080; /* Purple for subtitles */
+    font-size: 1.7rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-family: 'Baloo Tamma 2', sans-serif; /* Ensure Kannada font for its subtitle */
+}
+
+
+.announcement-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0 auto 30px auto;
+  max-width: 500px;
+  text-align: left; /* Align list items to left */
+}
+
+.announcement-list li {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 25px; /* Space for custom bullet/icon */
+}
+.announcement-list-kannada {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0 auto 30px auto;
+  max-width: 500px;
+  text-align: left; /* Align list items to left */
+}
+.announcement-list-kannada li {
+    font-family: 'Baloo Tamma 2', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 25px; /* Space for custom bullet/icon */
+}
+
+
+.announcement-list li::before, .announcement-list-kannada li::before {
+  content: '👉'; /* Custom bullet point */
+  position: absolute;
+  left: 0;
+  color: #FFD700; /* Gold color for bullet */
+  font-size: 1.1em;
+}
+
+.announcement-contact {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #4b0082;
+  margin-top: 30px;
+  line-height: 1.5;
+}
+.announcement-contact-kannada {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4b0082;
+    margin-top: 30px;
+    line-height: 1.5;
+    font-family: 'Baloo Tamma 2', sans-serif; /* Ensure Kannada font */
+}
+
+.announcement-contact a, .announcement-contact-kannada a {
+  color: #800080;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.announcement-contact a:hover, .announcement-contact-kannada a:hover {
+  color: #FFD700;
+  text-decoration: underline;
+}
+
+.announcement-closing {
+  font-size: 1.5rem;
+  color: #E60073;
+  margin-top: 40px;
+  font-weight: bold;
+  line-height: 1.6;
+}
+.announcement-closing-kannada {
+    font-size: 1.4rem;
+    color: #E60073;
+    margin-top: 40px;
+    font-weight: bold;
+    line-height: 1.6;
+    font-family: 'Baloo Tamma 2', sans-serif; /* Ensure Kannada font */
+}
+
+.announcement-thanks {
+  font-size: 1.8rem;
+  color: #800080;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.announcement-thanks-kannada {
+    font-size: 1.7rem;
+    color: #800080;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: 'Baloo Tamma 2', sans-serif; /* Ensure Kannada font */
+}
+
+
+/* General Line Break Style */
+.custom-line {
+  width: 40%;
+  height: 3px;
+  background-color: blue;
+  border: none;
+  margin: 20px auto;
+  margin-bottom: 20px ;
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Animation Delays (extended for new content) */
+.delay-0 { animation-delay: 0.3s; }
+.delay-1 { animation-delay: 0.6s; }
+.delay-2 { animation-delay: 0.9s; }
+.delay-3 { animation-delay: 1.2s; }
+.delay-4 { animation-delay: 1.5s; }
+.delay-5 { animation-delay: 1.8s; }
+.delay-6 { animation-delay: 2.1s; }
+.delay-7 { animation-delay: 2.4s; }
+.delay-8 { animation-delay: 2.7s; }
+.delay-9 { animation-delay: 3.0s; }
+.delay-10 { animation-delay: 3.3s; }
+.delay-11 { animation-delay: 3.6s; }
+.delay-12 { animation-delay: 3.9s; }
+
+
+/* ================= FOOTER STYLES ================ */
+
+footer {
+  background: linear-gradient(145deg, #4b0082, #800080); /* Consistent purple gradient */
+  color: #FFD700; /* Gold text color, consistent with navbar */
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: auto; /* This pushes the footer to the bottom when flex:1 is used on content */
+  position: relative;
+  z-index: 10;
+  font-family: 'Segoe UI', sans-serif; /* Consistent font with navbar */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth, inverse of navbar */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically for better mobile view by default */
+    align-items: center; /* Center items horizontally */
+    max-width: 1200px; /* Limit width for better readability on large screens */
+    margin: 0 auto; /* Center the content div */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.footer-section {
+    margin-bottom: 25px; /* Space between the contact info and copyright */
+}
+
+.footer-section h3 {
+    color: #FFD700; /* Gold color for heading */
+    font-size: 1.8em; /* Slightly larger heading */
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Increased letter spacing for headings */
+}
+
+.footer-section p {
+    margin-bottom: 10px; /* Space between paragraphs */
+    font-size: 1.15em; /* Readable font size for information */
+    line-height: 1.7;
+    color: #F0E68C; /* Lighter gold/khaki for text, good contrast on purple */
+}
+
+.footer-section p strong {
+    color: #FFD700; /* Keep strong text gold for emphasis */
+}
+
+.footer-section a {
+    color: #ADD8E6; /* Light blue for links for good distinction */
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #FFFFFF; /* White on hover */
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 215, 0, 0.3); /* Subtle separator line above copyright */
+    padding-top: 20px; /* Space above copyright */
+    margin-top: 20px; /* Space from contact info */
+    width: 100%; /* Ensure separator spans full width */
+}
+
+footer p.bottom {
+  color: #FFD700;
+  margin-bottom: 0;
+  font-size: 1em; /* Standard font size for copyright */
+  opacity: 0.9; /* Slightly faded for less prominence but still visible */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .footer-section {
+        margin-bottom: 20px;
+    }
+    .footer-section h3 {
+        font-size: 1.6em;
+    }
+    .footer-section p {
+        font-size: 1em;
+    }
+}
+/* --- Scroll to Top Button Styles --- */
+.scroll-to-top {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Fixed position */
+    bottom: 30px;
+    /* 30px from the bottom */
+    right: 30px;
+    /* 30px from the right */
+    z-index: 999;
+    /* Make sure it's above other elements */
+    background-color: #4b0082;
+    /* Deep purple background */
+    color: #FFD700;
+    /* Gold arrow color */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Round button */
+    text-align: center;
+    line-height: 50px;
+    /* Center text/icon vertically */
+    font-size: 24px;
+    /* Icon size */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
+    /* Smooth transitions */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top:hover {
+    background-color: #6a0dad;
+    /* Darker purple on hover */
+    transform: translateY(-3px);
+    /* Slight lift effect */
+}
