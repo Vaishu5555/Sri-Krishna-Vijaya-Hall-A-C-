@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sri Krishna Vijaya Hall(A/C) - Events</title>
+  <title>Sri Krishna Vijaya Hall(A/C)</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -9,14 +9,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="css/Events.css"> <!-- Make sure this path is correct for your CSS file -->
-
+  <link rel="stylesheet" href="css/index.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada&display=swap" rel="stylesheet">
+  <!-- For Kannada Baloo Tamma 2 -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&family=Poppins:wght@400&display=swap" rel="stylesheet">
+
   <script>
     $(document).ready(function() {
+      $('#myCarousel').carousel({
+        interval: 500 // Changed to 500 milliseconds for quicker image changes
+      });
+
       // Navbar animation on load
       let navbar = document.querySelector(".navbar");
       if (navbar) {
@@ -40,28 +44,7 @@
       // Run on scroll and on initial load
       document.addEventListener("scroll", handleScrollAnimation);
       handleScrollAnimation(); // Initial check on load
-
-      // Prevent right-click download on videos
-      document.querySelectorAll("video").forEach(video => {
-        video.addEventListener("contextmenu", function (event) {
-          event.preventDefault(); // Blocks right-click download
-        });
-      });
-
-      // --- Removed global click listener for autoplay/unmuting ---
-      // Videos are now muted by default using the 'muted' attribute in HTML.
-      // Users can unmute them using the video controls.
-
-      // --- Modal Logic for Images ---
-      // When the modal is about to be shown, update the image source
-      $('#imageModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget); // Button that triggered the modal
-        var imageSrc = button.data('image-src'); // Extract image source from data-image-src attribute
-        var modal = $(this);
-        modal.find('#modalImage').attr('src', imageSrc); // Set the src of the image in the modal
-      });
     });
-    
     $(document).ready(function() {
         // ... (your existing JavaScript code) ...
 
@@ -120,10 +103,10 @@
     <!-- Nav Links -->
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="hov1"><a href="index.html">Home</a></li>
+        <li class="hov1 active"><a href="#">Home</a></li> <!-- Mark 'Home' as active -->
         <li class="hov1"><a href="Packages.html">Packages</a></li>
-        <li class="hov1 active"><a href="#">Events</a></li> <!-- Mark 'Events' as active -->
-        <li class="hov1"><a href="contact.html">Contact Us</a></li>
+        <li class="hov1"><a href="Events.html">Events</a></li>
+        <li class="hov1"><a href="Contact.html">Contact Us</a></li>
       </ul>
     </div>
   </div>
@@ -131,118 +114,172 @@
 
 <!-- Main content wrapper to push footer down -->
 <div id="main-content" class="site-content-wrapper">
-  <!-- Background section for the page content -->
-  <div class="background-section">
-    <div class="custom-container gallery-container">
-      <h1 class="events-page-title slide-in-up">Our Memorable Events</h1>
-      <p class="events-description slide-in-up delay-0">A glimpse into the joyous occasions and grand celebrations hosted at Sri Krishna Vijaya Hall.</p>
 
-      <!-- Video Gallery Section -->
-      <div class="video-gallery">
-        <div class="video-item slide-in-up delay-1">
-          <video class="responsive-media" controls playsinline muted> <!-- Added 'muted' attribute -->
-            <source src="images1/vedio4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-item slide-in-up delay-2">
-          <video class="responsive-media" controls playsinline muted> <!-- Added 'muted' attribute -->
-            <source src="images1/vedio5.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-       
-       
-        <div class="video-item slide-in-up delay-1">
-          <video class="responsive-media" controls playsinline muted> <!-- Added 'muted' attribute -->
-            <source src="images1/vedio2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-         
-        <!-- Add more video items as needed -->
+  <!-- Carousel Section -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="500">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="images1/marriage1.webp" alt="Marriage Ceremony">
       </div>
-
-      <hr class="custom-line">
-
-      <!-- Image Gallery Section -->
-      <div class="image-grid">
-        <div class="image-item slide-in-up delay-0">
-          <img class="responsive-media" src="images1/3.jpeg" alt="Event Image 1">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/3.jpeg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-       
-        <div class="image-item slide-in-up delay-2">
-          <img class="responsive-media" src="images1/5.jpeg" alt="Event Image 3">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/5.jpeg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-0">
-          <img class="responsive-media" src="images1/6.jpeg" alt="Event Image 4">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/6.jpeg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-1">
-          <img class="responsive-media" src="images1/7.jpeg" alt="Event Image 5">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/7.jpeg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-2">
-          <img class="responsive-media" src="images1/10.jpeg" alt="Event Image 6">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/10.jpeg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-0">
-          <img class="responsive-media" src="images1/20-30.jpg" alt="Event Image 7">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/20-30.jpg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-0">
-          <img class="responsive-media" src="images1/8.jpeg" alt="Event Image 7">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/20-30.jpg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-0">
-          <img class="responsive-media" src="images1/1.jpeg" alt="Event Image 7">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/20-30.jpg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-        <div class="image-item slide-in-up delay-0">
-          <img class="responsive-media" src="images1/carosel1.jpg" alt="Event Image 7">
-          <button class="zoom-icon" data-toggle="modal" data-target="#imageModal" data-image-src="images1/20-30.jpg" aria-label="Enlarge image">
-            <i class="fas fa-search-plus"></i>
-          </button>
-        </div>
-       
-        <!-- Add more image items as needed -->
+      <div class="item">
+        <img src="images1/engagement.jpeg" alt="Engagement Ceremony">
+      </div>
+      <div class="item">
+        <img src="images1/naming ceremony.jpg" alt="Birthday Celebration">
+      </div>
+      <div class="item">
+        <img src="images1/upanayanam images.jpg" alt="Upanayanam Ceremony">
       </div>
     </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-</div>
 
-<!-- Image Modal (Lightbox) Structure -->
-<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="imageModalLabel">Enlarged Image View</h4>
-      </div>
-      <div class="modal-body text-center">
-        <img src="" class="img-responsive" id="modalImage" alt="Enlarged Event Image">
-      </div>
+  <!-- Main Content Sections -->
+  <div class="background-section">
+
+    <!-- Existing English Section -->
+    <div class="custom-container">
+      <h2 id="paraheadE" class="slide-in-up">
+        Celebrate Grandeur<br>Where Tradition Meets Modern Comfort
+      </h2>
+      <p id="paraE" class="slide-in-up delay-1">
+        Welcome to <strong>Sri Krishna Vijaya Hall (A/C)</strong>, a premium air-conditioned convention centre ideal for weddings, receptions, and cultural events in <strong>AGS Layout, Bangalore</strong>.
+      </p>
+      <p id="paraE" class="slide-in-up delay-2">
+        With modern interiors, ample parking, and dedicated service, we turn every event into a grand celebration.
+      </p>
+      <p id="paraE" class="slide-in-up delay-3">
+        Perfect venue for weddings, receptions, and cultural events.<br>
+        <br>1. Hall Interior<br>
+        <br>2. Event Decoration<br>
+        <br>3. Reception Setup<br>
+      </p>
     </div>
+
+    <hr class="custom-line">
+
+    <!-- NEW Announcement Section - English -->
+    <div class="custom-container announcement-container">
+      <h2 class="announcement-title slide-in-up delay-0">
+        ✨ Golden Opportunity! ✨
+      </h2>
+      <p class="announcement-text slide-in-up delay-1">
+        📢 Distinguished Ladies and Gentlemen! The renowned "Right Brothers" Group is launching SRS Convention Hall newly as "Sri Krishna Vijaya Hall" from February 2025! 🎉
+      </p>
+      <h3 class="announcement-subtitle slide-in-up delay-2">
+        💥 Special Discount - 10% OFF! 💥
+      </h3>
+      <p class="announcement-text slide-in-up delay-3">
+        🛕 Special discount available for auspicious events like weddings, Upanayana, engagements, naming ceremonies, birthdays, and more! Seize this opportunity!
+      </p>
+      <h3 class="announcement-subtitle slide-in-up delay-4">
+        🏛 Facilities:
+      </h3>
+      <ul class="announcement-list slide-in-up delay-5">
+        <li>✅ Seating capacity for 250 - 500 people</li>
+        <li>✅ Dining arrangement for 175 people</li>
+        <li>✅ 6 Rooms + 1 A/C Room</li>
+        <li>✅ 10 Car Parking + 2-Wheeler Parking</li>
+      </ul>
+      <h3 class="announcement-subtitle slide-in-up delay-6">
+        💡 Our Special Services:
+      </h3>
+      <ul class="announcement-list slide-in-up delay-7">
+        <li>🔹 Priests 🙏</li>
+        <li>🔹 Cooks 👨‍🍳</li>
+        <li>🔹 Musicians 🎶</li>
+      </ul>
+      <p class="announcement-closing slide-in-up delay-8">
+        💐 Heartfelt welcome to all your auspicious celebrations! 💐
+      </p>
+      <p class="announcement-contact slide-in-up delay-9">
+        📍 Location: "Sri Krishna Vijaya Hall"<br>
+        📞 For more details, contact: +91 98866 00338
+      </p>
+      <p class="announcement-thanks slide-in-up delay-10">
+        Thank You 🙏✨
+      </p>
+    </div>
+
+    <hr class="custom-line">
+
+    <!-- Existing Kannada Section -->
+    <div class="custom-container">
+      <h3 id="paraheadk" class="slide-in-up delay-4">ಪಾರಂಪರ್ಯ ಮತ್ತು ಆಧುನಿಕತೆಯ ಸೊಗಡಿನಲ್ಲಿ ಮೆರೆದೊಂದು ಸ್ಮರಣೀಯ ಕ್ಷಣ!</h3>
+      <br>
+      <p id="parak" class="slide-in-up delay-5"><strong>ಶ್ರೀ ಕೃಷ್ಣ ವಿಜಯ ಹಾಲ್ (ಎ/ಸಿ)</strong> – ಬೆಂಗಳೂರಿನ <strong>ಎಜಿಎಸ್ ಲೇಔಟ್</strong> ಎಂಬ ಶಾಂತಿಯುತ ಪ್ರದೇಶದಲ್ಲಿರುವ ಈ ಸ್ಥಳ, ಪವಿತ್ರತೆ ಮತ್ತು ಸೌಕರ್ಯದ ಸಮತೋಲನವನ್ನು ನಿಮಗೆ ನೀಡುತ್ತದೆ.</p>
+      <br>
+      <p id="parak" class="slide-in-up delay-6">ಮದುವೆ, ನಿಶ್ಚಿತಾರ್ಥ, ನಾಮಕರಣ, ಉಪನಯನ, ಶಾಂತಿ ಅಥವಾ ಧಾರ್ಮಿಕ ಆಚರಣೆಗಳಿಗಾಗಿ ಇಲ್ಲಿ ವಿಶಾಲವಾದ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ವಾತಾವರಣದ ಹಾಲ್ ಲಭ್ಯವಿದೆ.</p>
+      <br>
+      <p id="parak" class="slide-in-up delay-7">ವಿಶಾಲ ಪಾರ್ಕಿಂಗ್, ಎ/ಸಿ ಸೌಲಭ್ಯ, ಸ್ವಚ್ಛ ಶೌಚಾಲಯಗಳು, ಅನುಭವದ ಕಾರ್ಯಕ್ರಮ ನಿರ್ವಹಣೆ ಹಾಗೂ ಶ್ರೇಷ್ಠ ಕ್ಯಾಟರಿಂಗ್ ಸೇವೆಗಳೊಂದಿಗೆ ನಿಮ್ಮ ಕಾರ್ಯಕ್ರಮ ಯಶಸ್ವಿಯಾಗುವುದು ಖಚಿತ.</p>
+    </div>
+
+    <hr class="custom-line">
+
+    <!-- NEW Announcement Section - Kannada -->
+    <div class="custom-container announcement-container">
+      <h2 class="announcement-title-kannada slide-in-up delay-0">
+        🔱 ಓಂ ಗಣೇಶಾಯ ನಮಃ 🔱
+      </h2>
+      <p class="announcement-text-kannada slide-in-up delay-1">
+        � ನಮಸ್ಕಾರ ಆತ್ಮೀಯ ವಿಪ್ರ ಬಾಂಧವರಿಗೆ 🙏
+      </p>
+      <h3 class="announcement-subtitle-kannada slide-in-up delay-2">
+        ✨ ಸುವರ್ಣ ಅವಕಾಶ! ✨
+      </h3>
+      <p class="announcement-text-kannada slide-in-up delay-3">
+        📢 ಮಹನೀಯರೇ ಮತ್ತು ಮಹಿಳೆಯರೇ! ಪ್ರಸಿದ್ಧ "ರೈಟ್ ಬ್ರದರ್ಸ್" ಸಮೂಹ ಸಂಸ್ಥೆಯು SRS ಕನ್ವೆನ್ಷನ್ ಸಭಾಂಗಣವನ್ನು ನೂತನವಾಗಿ "ಶ್ರೀ ಕೃಷ್ಣ ವಿಜಯ ಸಭಾಂಗಣ" ಎಂಬ ಹೆಸರಿನಲ್ಲಿ ಫೆಬ್ರವರಿ 2025 ರಿಂದ ಪ್ರಾರಂಭಿಸುತ್ತಿದೆ! 🎉
+      </p>
+      <h3 class="announcement-subtitle-kannada slide-in-up delay-4">
+        💥 ವಿಶೇಷ ರಿಯಾಯಿತಿ - 10% ಡಿಸ್ಕೌಂಟ್! 💥
+      </h3>
+      <p class="announcement-text-kannada slide-in-up delay-5">
+        🛕 ಮದುವೆ, ಉಪನಯನ, ನಿಶ್ಚಿತಾರ್ಥ, ನಾಮಕರಣ, ಹುಟ್ಟುಹಬ್ಬ ಮುಂತಾದ ಶುಭ ಕಾರ್ಯಕ್ರಮಗಳಿಗಾಗಿ ವಿಶೇಷ ರಿಯಾಯಿತಿ ಲಭ್ಯ! ಈ ಅವಕಾಶವನ್ನು ಸದುಪಯೋಗಪಡಿಸಿಕೊಳ್ಳಿ!
+      </p>
+      <h3 class="announcement-subtitle-kannada slide-in-up delay-6">
+        🏛 ಸೌಲಭ್ಯಗಳು:
+      </h3>
+      <ul class="announcement-list-kannada slide-in-up delay-7">
+        <li>✅ 250 - 500 ಜನರಿಗೆ ಆಸನ ವ್ಯವಸ್ಥೆ</li>
+        <li>✅ 175 ಜನರ ಊಟದ ವ್ಯವಸ್ಥೆ</li>
+        <li>✅ 6 ರೂಮುಗಳು + 1 A/C ರೂಮ್</li>
+        <li>✅ 10 ಕಾರ್ ಪಾರ್ಕಿಂಗ್ + 2 ವೀಲರ್ ಪಾರ್ಕಿಂಗ್</li>
+      </ul>
+      <h3 class="announcement-subtitle-kannada slide-in-up delay-8">
+        💡 ನಮ್ಮಲ್ಲಿನ ವಿಶೇಷ ಸೇವೆಗಳು:
+      </h3>
+      <ul class="announcement-list-kannada slide-in-up delay-9">
+        <li>🔹 ಅರ್ಚಕರು 🙏</li>
+        <li>🔹 ಅಡಿಗೆಯವರು 👨‍🍳</li>
+        <li>🔹 ವಾದನದವರು 🎶</li>
+      </ul>
+      <p class="announcement-closing-kannada slide-in-up delay-10">
+        💐 ನಿಮ್ಮ ಎಲ್ಲಾ ಶುಭ ಸಮಾರಂಭಗಳಿಗೆ ನಮ್ಮ ಆತ್ಮೀಯ ಸ್ವಾಗತ! 💐
+      </p>
+      <p class="announcement-contact-kannada slide-in-up delay-11">
+        📍 ಸ್ಥಳ: "ಶ್ರೀ ಕೃಷ್ಣ ವಿಜಯ ಸಭಾಂಗಣ"<br>
+        📞 ಹೆಚ್ಚಿನ ವಿವರಗಳಿಗೆ ಸಂಪರ್ಕಿಸಿ: +91 98866 00338
+      </p>
+      <p class="announcement-thanks-kannada slide-in-up delay-12">
+        ಧನ್ಯವಾದಗಳು 🙏✨
+      </p>
+    </div>
+
   </div>
 </div>
 
